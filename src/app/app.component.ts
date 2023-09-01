@@ -1,7 +1,7 @@
-import { Component, Injectable, NgZone } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Component } from '@angular/core';
 import { delayWhen, of, timer } from 'rxjs';
 import { SnackbarService } from './snackbar.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 interface Genero {
   value: string;
   viewValue: string;
@@ -29,20 +29,25 @@ export class AppComponent {
   registerGenero: String = '';
   registerPassword: string = "";
   registerPasswordValidate: string = "";
-
   genero: Genero[] = [
     { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
   ];
-  constructor(private _snackBar: MatSnackBar, private snackbar: SnackbarService) { }
+  constructor(private snackbar: SnackbarService) { }
+
+  myGroup = new FormGroup({
+    loginUsername: new FormControl('', [Validators.required, Validators.maxLength(3)]),
+    loginPassword: new FormControl('', Validators.required)
+  });
+
+
+
 
   login() {
+    //console.log(this.myGroup.status);
+    console.log(this.myGroup);
     this.loading = true;
-    if (this.loginUsername == '' || this.loginPassword == '') {
-      this.loading = false;
-
-      this.snackbar.warning('Debe llenar todos los campos', 'ok');
-    } else {
+    if (this.myGroup.status == 'VALID') {
       of(null).pipe(
         delayWhen(() => timer(3000))
       ).subscribe(() => {
@@ -51,6 +56,10 @@ export class AppComponent {
         this.clearFormLogin();
         this.loading = false;
       });
+    } else {
+      console.log(this.myGroup.controls.loginUsername.errors);
+      this.loading = false;
+      this.snackbar.warning('Formulario no valido', 'ok');
     }
   }
 

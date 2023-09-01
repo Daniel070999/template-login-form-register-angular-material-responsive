@@ -28,6 +28,10 @@
 mat-form-field {
     margin-inline: 10px;
 }
+mat-error{
+    font-size: small;
+    font-style: italic;
+}
 
 .snackbar-container {
     color: beige;
