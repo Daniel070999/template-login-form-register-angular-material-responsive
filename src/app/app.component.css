@@ -1,0 +1,95 @@
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    text-align: center;
+    background-color: rgba(173, 216, 255, 0.658);
+    border-radius: 12px;
+}
+
+.content-form {
+    display: grid;
+    padding: 25px 0 25px 0;
+}
+
+.content-form-register {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+mat-form-field {
+    margin-inline: 10px;
+}
+
+.snackbar-container {
+    color: beige;
+    background-color: #c62828 !important;
+}
+
+.go-register {
+    font-size: 10px;
+    text-align: right;
+}
+
+.go-register:hover {
+    cursor: pointer;
+}
+
+.small-box,
+.large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.small-box {
+    height: 250px;
+    width: 280px;
+    background-color: aliceblue;
+}
+
+.large-box {
+    display: grid;
+    height: 450px;
+    width: 280px;
+    background-color: aliceblue;
+}
+
+.example-viewport {
+    height: 100%;
+    width: 600px;
+}
+
+@media screen and (min-width: 480px) {
+    .large-box {
+        height: 450px;
+        width: 600px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .example-viewport {
+        width: 280px;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    .large-box {
+        height: 250px;
+        width: 600px;
+    }
+}
+
