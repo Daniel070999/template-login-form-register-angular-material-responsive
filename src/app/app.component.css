@@ -28,7 +28,8 @@
 mat-form-field {
     margin-inline: 10px;
 }
-mat-error{
+
+mat-error {
     font-size: small;
     font-style: italic;
 }
@@ -58,6 +59,7 @@ mat-error{
 }
 
 .small-box {
+    display: grid;
     height: 250px;
     width: 280px;
     background-color: aliceblue;
@@ -70,7 +72,7 @@ mat-error{
     background-color: aliceblue;
 }
 
-.example-viewport {
+.viewport {
     height: 100%;
     width: 600px;
 }
@@ -80,12 +82,11 @@ mat-error{
         height: 450px;
         width: 600px;
     }
-
 }
 
 @media screen and (max-width: 480px) {
 
-    .example-viewport {
+    .viewport {
         width: 280px;
     }
 }
@@ -96,4 +97,3 @@ mat-error{
         width: 600px;
     }
 }
-

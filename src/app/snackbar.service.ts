@@ -5,6 +5,9 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 
+/**
+ * Clase que arma el snackbar y recibe como parámetros el mensaje y la acción.
+ */
 export class SnackbarService {
   private config: MatSnackBarConfig;
 

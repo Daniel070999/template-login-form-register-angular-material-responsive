@@ -28,6 +28,6 @@ body {
     &.app-notification-warning {
         --mat-mdc-snack-bar-button-color: #000000;
         --mdc-snackbar-supporting-text-color: #1a1717;
-        --mdc-snackbar-container-color: #ffd000;
+        --mdc-snackbar-container-color: #e9d062;
     }
 }
