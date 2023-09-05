@@ -13,7 +13,6 @@ interface Genero {
 })
 
 export class AppComponent {
-  hide: boolean = true;
   loading: boolean = false;
   demo1TabIndex: any;
   /**
@@ -26,12 +25,11 @@ export class AppComponent {
   ControlregisterLastName = new FormControl('', [Validators.required, Validators.maxLength(50)]);
   ControlregisterUser = new FormControl('', [Validators.required, Validators.maxLength(20)]);
   ControlregisterEmail = new FormControl('', [Validators.required, Validators.email]);
-  ControlregisterDateBirth = new FormControl('', [Validators.required]);
+  ControlregisterDateBirth = new FormControl('', Validators.required);
   ControlregisterPhone = new FormControl('', [Validators.required, Validators.maxLength(15), Validators.pattern('^[0-9+]*$')]);
-  ControlregisterGenero = new FormControl('', [Validators.required]);
-  ControlregisterPassword = new FormControl('', [Validators.required
-    , Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,100}')]);
-  ControlregisterPasswordValidate = new FormControl('', [Validators.required]);
+  ControlregisterGenero = new FormControl('', Validators.required);
+  ControlregisterPassword = new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,100}')]);
+  ControlregisterPasswordValidate = new FormControl('', Validators.required);
   /**
    * Variables para el login
    */

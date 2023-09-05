@@ -15,19 +15,19 @@ body {
 
     &.app-notification-error {
         --mat-mdc-snack-bar-button-color: #000000;
-        --mdc-snackbar-supporting-text-color: #1a1717;
-        --mdc-snackbar-container-color: #f23a2f;
+        --mdc-snackbar-supporting-text-color: #000000;
+        --mdc-snackbar-container-color: rgba(250, 50, 50, 0.5);
     }
 
     &.app-notification-success {
-        --mat-mdc-snack-bar-button-color: #ffffff;
-        --mdc-snackbar-supporting-text-color: #ffffff;
-        --mdc-snackbar-container-color: #43a446;
+        --mat-mdc-snack-bar-button-color: #000000;
+        --mdc-snackbar-supporting-text-color: #000000;
+        --mdc-snackbar-container-color: rgba(123, 250, 50, 0.5);
     }
 
     &.app-notification-warning {
         --mat-mdc-snack-bar-button-color: #000000;
         --mdc-snackbar-supporting-text-color: #1a1717;
-        --mdc-snackbar-container-color: #e9d062;
+        --mdc-snackbar-container-color: rgba(250, 237, 50, 0.5);
     }
 }

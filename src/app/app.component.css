@@ -7,15 +7,35 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    background-image: url('https://www.wallpaperup.com/uploads/wallpapers/2016/03/30/918988/d29264bc683df42ae189a351116ce0da.jpg');
+    background-size: cover;
 }
 
 .card {
     text-align: center;
-    background-color: rgba(173, 216, 255, 0.658);
     border-radius: 12px;
+    background-color: rgba(240, 248, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
-.content-form {
+.container-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-form-rigth {
+    display: grid;
+    background-image: url('https://th.bing.com/th/id/OIP.bDT2VoIW1OBX37PFDat_JgHaQB?pid=ImgDet&rs=1');
+    background-size: cover;
+    background-position: center;
+    width: 107%;
+    height: 315px;
+    border-radius: 50%;
+}
+
+.content-form-left {
     display: grid;
     padding: 25px 0 25px 0;
 }
@@ -34,10 +54,7 @@ mat-error {
     font-style: italic;
 }
 
-.snackbar-container {
-    color: beige;
-    background-color: #c62828 !important;
-}
+
 
 .go-register {
     font-size: 10px;
@@ -61,15 +78,17 @@ mat-error {
 .small-box {
     display: grid;
     height: 250px;
-    width: 280px;
-    background-color: aliceblue;
+    width: 600px;
+    background-color: rgba(240, 248, 255, 0.75);
+    backdrop-filter: blur(5px);
 }
 
 .large-box {
     display: grid;
     height: 450px;
-    width: 280px;
-    background-color: aliceblue;
+    width: 600px;
+    background-color: rgba(240, 248, 255, 0.75);
+    backdrop-filter: blur(5px);
 }
 
 .viewport {
@@ -88,6 +107,18 @@ mat-error {
 
     .viewport {
         width: 280px;
+    }
+
+    .large-box {
+        width: 280px;
+    }
+
+    .small-box {
+        width: 280px;
+    }
+
+    .content-form-rigth {
+        width: 0px;
     }
 }
 

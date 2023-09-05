@@ -3,32 +3,35 @@
     <mat-card-content>
       <mat-tab-group dynamicHeight [(selectedIndex)]="demo1TabIndex">
         <mat-tab label="Iniciar sesión">
-          <div class="small-box mat-elevation-z4">
-            <form class="form" [formGroup]="FormLoginValidateGroup" (ngSubmit)="login()">
-              <div class="content-form">
-                <mat-form-field appearance="outline">
-                  <mat-label>Usuario / Email</mat-label>
-                  <input matInput placeholder="Usuario / Email" [(ngModel)]="loginUsername"
-                    formControlName="ControlloginUsername">
-                  <mat-icon matPrefix color="primary">account_circle</mat-icon>
-                  <mat-error *ngIf="ControlloginUsername.hasError('required')">
-                    <span>Campo requerido</span>
-                  </mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                  <mat-label>Clave</mat-label>
-                  <input matInput type="password" placeholder="Clave" [(ngModel)]="loginPassword"
-                    formControlName="ControlloginPassword">
-                  <mat-icon matPrefix color="primary">lock</mat-icon>
-                  <mat-error *ngIf="ControlloginPassword.hasError('required')">
-                    <span>Campo requerido</span>
-                  </mat-error>
-                </mat-form-field>
-                <button mat-fab extended color="primary" style="width: 100%;" *ngIf="!loading">Aceptar</button>
-                <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
-                <p class="go-register" (click)="demo1TabIndex=1">Registrarse</p>
-              </div>
-            </form>
+          <div class="container-login">
+            <div class="small-box mat-elevation-z4">
+              <form class="form" [formGroup]="FormLoginValidateGroup" (ngSubmit)="login()">
+                <div class="content-form-left">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Usuario / Email</mat-label>
+                    <input matInput placeholder="Usuario / Email" [(ngModel)]="loginUsername"
+                      formControlName="ControlloginUsername">
+                    <mat-icon matPrefix color="primary">account_circle</mat-icon>
+                    <mat-error *ngIf="ControlloginUsername.hasError('required')">
+                      <span>Campo requerido</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Clave</mat-label>
+                    <input matInput type="password" placeholder="Clave" [(ngModel)]="loginPassword"
+                      formControlName="ControlloginPassword">
+                    <mat-icon matPrefix color="primary">lock</mat-icon>
+                    <mat-error *ngIf="ControlloginPassword.hasError('required')">
+                      <span>Campo requerido</span>
+                    </mat-error>
+                  </mat-form-field>
+                  <button mat-fab extended color="primary" style="width: 100%;" *ngIf="!loading">Aceptar</button>
+                  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+                  <p class="go-register" (click)="demo1TabIndex=1">Registrarse</p>
+                </div>
+              </form>
+            </div>
+            <a class="content-form-rigth"></a>
           </div>
         </mat-tab>
         <mat-tab label="Registrarse">
