@@ -9,8 +9,7 @@
                 <div class="content-form-left">
                   <mat-form-field appearance="outline">
                     <mat-label>Usuario / Email</mat-label>
-                    <input matInput placeholder="Usuario / Email" [(ngModel)]="loginUsername"
-                      formControlName="ControlloginUsername">
+                    <input matInput placeholder="Usuario / Email" formControlName="username">
                     <mat-icon matPrefix color="primary">account_circle</mat-icon>
                     <mat-error *ngIf="ControlloginUsername.hasError('required')">
                       <span>Campo requerido</span>
@@ -18,8 +17,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Clave</mat-label>
-                    <input matInput type="password" placeholder="Clave" [(ngModel)]="loginPassword"
-                      formControlName="ControlloginPassword">
+                    <input matInput type="password" placeholder="Clave" formControlName="password">
                     <mat-icon matPrefix color="primary">lock</mat-icon>
                     <mat-error *ngIf="ControlloginPassword.hasError('required')">
                       <span>Campo requerido</span>
@@ -41,8 +39,7 @@
                 <div class="content-form-register">
                   <mat-form-field appearance="outline">
                     <mat-label>Nombres</mat-label>
-                    <input matInput placeholder="Nombres" [(ngModel)]="registerName"
-                      formControlName="ControlregisterName">
+                    <input matInput placeholder="Nombres" formControlName="name">
                     <mat-icon matSuffix color="primary">text_fields</mat-icon>
                     <mat-error *ngIf="ControlregisterName.hasError('required')">
                       <span>Campo requerido</span>
@@ -53,8 +50,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Apellidos</mat-label>
-                    <input matInput placeholder="Apellidos" [(ngModel)]="registerLastName"
-                      formControlName="ControlregisterLastName">
+                    <input matInput placeholder="Apellidos" formControlName="lastname">
                     <mat-icon matSuffix color="primary">text_fields</mat-icon>
                     <mat-error *ngIf="ControlregisterLastName.hasError('required')">
                       <span>Campo requerido</span>
@@ -65,8 +61,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input matInput placeholder="Usuario" [(ngModel)]="registerUser"
-                      formControlName="ControlregisterUser">
+                    <input matInput placeholder="Usuario" formControlName="user">
                     <mat-icon matSuffix color="primary">account_circle</mat-icon>
                     <mat-error *ngIf="ControlregisterUser.hasError('required')">
                       <span>Campo requerido</span>
@@ -77,8 +72,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" [(ngModel)]="registerEmail"
-                      formControlName="ControlregisterEmail">
+                    <input matInput placeholder="Email" formControlName="email">
                     <mat-icon matSuffix color="primary">email</mat-icon>
                     <mat-error *ngIf="ControlregisterEmail.hasError('required')">
                       <span>Campo requerido</span>
@@ -89,7 +83,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Genero</mat-label>
-                    <mat-select [(value)]="registerGenero" formControlName="ControlregisterGenero">
+                    <mat-select [(value)]="registerGenero" formControlName="genero">
                       <mat-option [value]="option.value" *ngFor="let option of genero">{{ option.viewValue
                         }}</mat-option>
                     </mat-select>
@@ -99,8 +93,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Celular</mat-label>
-                    <input type="tel" matInput placeholder="+593 123456789" [(ngModel)]="registerPhone"
-                      formControlName="ControlregisterPhone">
+                    <input type="tel" matInput placeholder="+593 123456789" formControlName="phone">
                     <mat-icon matSuffix color="primary">phone_iphone</mat-icon>
                     <mat-error *ngIf="ControlregisterPhone.hasError('required')">
                       <span>Campo requerido</span>
@@ -111,8 +104,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Fecha de nacimiento</mat-label>
-                    <input matInput [matDatepicker]="datepicker" [(ngModel)]="registerDateBirth"
-                      formControlName="ControlregisterDateBirth">
+                    <input matInput [matDatepicker]="datepicker" formControlName="datebirth">
                     <mat-error *ngIf="ControlregisterDateBirth.hasError('required')">
                       <span>Campo requerido</span>
                     </mat-error>
@@ -127,8 +119,7 @@
                   <br>
                   <mat-form-field appearance="outline">
                     <mat-label>Clave</mat-label>
-                    <input matInput type="password" placeholder="Clave" [(ngModel)]="registerPassword"
-                      formControlName="ControlregisterPassword">
+                    <input matInput type="password" placeholder="Clave" formControlName="password">
                     <mat-icon matSuffix color="primary">lock</mat-icon>
                     <mat-error *ngIf="ControlregisterPassword.hasError('required')">
                       <span>Campo requerido</span>
@@ -154,8 +145,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="outline">
                     <mat-label>Confirmar clave</mat-label>
-                    <input matInput type="password" placeholder="Confirmar clave" [(ngModel)]="registerPasswordValidate"
-                      formControlName="ControlregisterPasswordValidate">
+                    <input matInput type="password" placeholder="Confirmar clave" formControlName="passwordvalidate">
                     <mat-icon matSuffix color="primary">lock</mat-icon>
                     <mat-error *ngIf="ControlregisterPasswordValidate.hasError('required')">
                       <span>Campo requerido</span>

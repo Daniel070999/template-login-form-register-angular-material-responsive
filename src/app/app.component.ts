@@ -2,22 +2,16 @@ import { Component } from '@angular/core';
 import { delayWhen, of, timer } from 'rxjs';
 import { SnackbarService } from './snackbar.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-interface Genero {
-  value: string;
-  viewValue: string;
-}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
   loading: boolean = false;
   demo1TabIndex: any;
   /**
-   * Variables para la validación del formulario para los grupos 
-   * FormLoginValidateGroup y FormRegisterValidateGroup
+   * Variables for form validation for groups FormLoginValidateGroup and FormRegisterValidateGroup
    */
   ControlloginUsername = new FormControl('', Validators.required);
   ControlloginPassword = new FormControl('', Validators.required);
@@ -30,51 +24,36 @@ export class AppComponent {
   ControlregisterGenero = new FormControl('', Validators.required);
   ControlregisterPassword = new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,100}')]);
   ControlregisterPasswordValidate = new FormControl('', Validators.required);
-  /**
-   * Variables para el login
-   */
-  loginUsername: string = "";
-  loginPassword: string = "";
-  /**
-   * Variables para el registro
-   */
-  registerName: string = "";
-  registerLastName: string = "";
-  registerUser: string = "";
-  registerEmail: string = "";
-  registerDateBirth?: Date;
-  registerPhone: string = "";
+
   registerGenero: String = '';
-  registerPassword: string = "";
-  registerPasswordValidate: string = "";
-  genero: Genero[] = [
+  genero: any = [
     { value: 'Masculino', viewValue: 'Masculino' },
     { value: 'Femenino', viewValue: 'Femenino' },
   ];
   constructor(private snackbar: SnackbarService) { }
   /**
-   * Valida el formulario del grupo Login
+   * Validates the Login group form
    */
   FormLoginValidateGroup = new FormGroup({
-    ControlloginUsername: this.ControlloginUsername,
-    ControlloginPassword: this.ControlloginPassword
+    username: this.ControlloginUsername,
+    password: this.ControlloginPassword
   });
   /**
-   * Valida el formulario del grupo Register
+   * Validates the Register group form
    */
   FormRegisterValidateGroup = new FormGroup({
-    ControlregisterName: this.ControlregisterName,
-    ControlregisterLastName: this.ControlregisterLastName,
-    ControlregisterUser: this.ControlregisterUser,
-    ControlregisterEmail: this.ControlregisterEmail,
-    ControlregisterDateBirth: this.ControlregisterDateBirth,
-    ControlregisterPhone: this.ControlregisterPhone,
-    ControlregisterGenero: this.ControlregisterGenero,
-    ControlregisterPassword: this.ControlregisterPassword,
-    ControlregisterPasswordValidate: this.ControlregisterPasswordValidate
+    name: this.ControlregisterName,
+    lastname: this.ControlregisterLastName,
+    user: this.ControlregisterUser,
+    email: this.ControlregisterEmail,
+    datebirth: this.ControlregisterDateBirth,
+    phone: this.ControlregisterPhone,
+    genero: this.ControlregisterGenero,
+    password: this.ControlregisterPassword,
+    passwordvalidate: this.ControlregisterPasswordValidate
   });
   /**
-   * login: Simula el logeo luego de haber validado el grupo del formulario Login
+   * login: Simulates logging in after validating the Login form group
    */
   login() {
     this.loading = true;
@@ -82,8 +61,8 @@ export class AppComponent {
       of(null).pipe(
         delayWhen(() => timer(1000))
       ).subscribe(() => {
-        console.log(this.loginUsername);
-        console.log(this.loginPassword);
+        //Returns a login data object
+        console.log(this.FormLoginValidateGroup.value);
         this.clearFormLogin();
         this.loading = false;
       });
@@ -93,40 +72,36 @@ export class AppComponent {
     }
   }
   /**
-   * register: Simula el registro luego de haber validado el grupo del formulario Register
+   * register: Simulates registration after validation of the Register form group
    */
   register() {
-    console.log(this.FormRegisterValidateGroup);
+    console.log(this.FormRegisterValidateGroup.value.password);
+    const pass: any = this.FormRegisterValidateGroup.value.password;
+
     this.loading = true;
-    if (this.registerPassword == '') {
-      this.ControlregisterPassword.setErrors({ required: true });
-    } else if (!(/[!@#$%^&*_=+-]/).test(this.registerPassword)) {
-      this.ControlregisterPassword.setErrors({ especial: true });
-    } else if (!(/(?=.*[0-9])/).test(this.registerPassword)) {
-      this.ControlregisterPassword.setErrors({ number: true });
-    } else if (!(/(?=.*[a-z])/).test(this.registerPassword)) {
-      this.ControlregisterPassword.setErrors({ minus: true });
-    } else if (!(/(?=.*[A-Z])/).test(this.registerPassword)) {
-      this.ControlregisterPassword.setErrors({ mayus: true });
-    } else if (this.registerPassword.length <= 8) {
-      this.ControlregisterPassword.setErrors({ min: true });
-    } else if (this.registerPassword.length >= 100) {
-      this.ControlregisterPassword.setErrors({ max: true });
+    if (pass == '') {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ required: true });
+    } else if (!(/[!@#$%^&*_=+-]/).test(pass)) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ especial: true });
+    } else if (!(/(?=.*[0-9])/).test(pass)) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ number: true });
+    } else if (!(/(?=.*[a-z])/).test(pass)) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ minus: true });
+    } else if (!(/(?=.*[A-Z])/).test(pass)) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ mayus: true });
+    } else if (pass.length <= 8) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ min: true });
+    } else if (pass.length >= 100) {
+      this.FormRegisterValidateGroup.get(['password'])?.setErrors({ max: true });
     }
     if (this.FormRegisterValidateGroup.status == 'VALID') {
-      if (this.registerPassword == this.registerPasswordValidate) {
+      const passValidate: any = this.FormRegisterValidateGroup.value.passwordvalidate;
+      if (pass == passValidate) {
         of(null).pipe(
           delayWhen(() => timer(1000))
         ).subscribe(() => {
-          console.log(this.registerName);
-          console.log(this.registerLastName);
-          console.log(this.registerUser);
-          console.log(this.registerEmail);
-          console.log(this.registerDateBirth!.toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' }));
-          console.log(this.registerPhone);
-          console.log(this.registerGenero);
-          console.log(this.registerPassword);
-          console.log(this.registerPasswordValidate);
+          // Returns a register data object
+          console.log(this.FormRegisterValidateGroup.value);
           this.clearFormRegister();
           this.snackbar.success('Usuario registrado', 'ok');
           this.loading = false;
@@ -143,7 +118,7 @@ export class AppComponent {
     }
   }
   /**
-   * clearFormLogin: limpia el formulario Login 
+   * clearFormLogin: clears the Login form
    */
   clearFormLogin() {
     this.FormLoginValidateGroup.reset();
@@ -152,7 +127,7 @@ export class AppComponent {
     });
   }
   /**
-   * clearFormLogin: limpia el formulario Register 
+   * clearFormLogin: clears the Register form
    */
   clearFormRegister() {
     this.FormRegisterValidateGroup.reset();
